@@ -21,7 +21,7 @@
 - name: Installing mysql client and load schema
   ansible.builtin.import_role:
     name: common
-    tasks_from: load-mysql.schema
+    tasks_from: load-mysql-schema
 
 - name: start application
   ansible.builtin.import_role:

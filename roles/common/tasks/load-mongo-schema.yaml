@@ -3,10 +3,10 @@
     src: mongodb.repo
     dest: /etc/yum.repos.d/mongo.repo
 
-- name: install mongodb shell
+- name: Install MongoDB
   ansible.builtin.yum:
     name: mongodb-org-shell
-    state: installed  
+    state: installed
 
 - name: load {{component}} data
   ansible.builtin.command: mongo --host mongodb.kpdigital.online < /app/schema/{{component}}.js

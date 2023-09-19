@@ -1,0 +1,19 @@
+- name: python installation
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: python-install
+
+- name: app-setup
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-setup
+
+- name: installing dependencies
+  ansible.builtin.command: pip3.6 install -r requirements.txt
+  args:
+    chdir: /app
+
+- name: start and relaod payment service
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd-setup
